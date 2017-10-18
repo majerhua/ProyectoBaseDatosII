@@ -1,0 +1,57 @@
+{% load staticfiles %}
+<html>
+
+<head>
+    <title>Curso Django</title>
+    <link rel="stylesheet" href="{% static 'css/style_registry.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+</head>
+
+<body>
+
+
+<div class="container-table">
+
+    <h1>Documentos del Proyecto</h1>
+    <a href="{% url "new_pd" %}"><h3>Agregar Nuevo Documento de Proyecto</h3></a>
+    <table class="table table-bordered table-responsive">
+        
+        <tr>
+
+            <th>IdDocumentoProyecto</th>
+            <th>Proyecto</th>
+            <th>Datos Documento Proyecto</th>
+            <th>Borrar</th>
+            <th>Editar</th>
+
+        </tr>
+
+        <tbody>
+        
+            {% for proyectodoc in proyectodocs %}
+
+            <tr>
+            
+                <td>{{proyectodoc.id}}</td>
+
+                <td>{{proyectodoc.proyecto}}</td>
+
+                <td><a href="{% url "det_pd" proyectodoc.id %}">Ver</a></td>
+                <td><a href="{% url "del_pd" proyectodoc.id %}">Borrar</a></td>
+                <td><a href="{% url "upd_pd" proyectodoc.id %}">Editar</a></td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+</div>
+
+
+<center><h1><a href="{% url "index" %}">Regresar Menu</a></h1></center>
+
+</body>
+
+</html>

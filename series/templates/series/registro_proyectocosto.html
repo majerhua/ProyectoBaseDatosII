@@ -1,0 +1,26 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="{% static 'css/style_registry.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+
+	<div class="contenedor_registry_proyecto">
+	<h1>Registro Nuevo Costo del Proyecto</h1>
+		<form method="post">
+
+	    	{% csrf_token %}
+	    	{{ form.as_p }}
+
+	    	<input type="submit" value="Registrar" class="btn btn-primary" />
+
+		</form>
+
+	</div>
+
+	<script src="{% static 'js/fun_registry_doc.js' %}" ></script>
+</body>
+</html>
