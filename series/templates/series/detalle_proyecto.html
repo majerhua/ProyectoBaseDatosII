@@ -1,26 +1,37 @@
 
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+</head>
+<body>
+<div class="container">
+    <h1>Numero proyecto {{ proyecto.id }}</h1>
+    <h2>Nombre <i>{{ proyecto.nombre }}</i></h2>
+    <p>
+        <a href="{% url "list_p" %}">Regresar</a>
+    </p>
 
+    
+        <p><b>Codigo Fase: </b> {{proyecto.codigoFase}}</p>
+        <p><b>Codigo Nivel: </b>{{proyecto.codigoNivel }}</p> 
+        <p><b>Codigo Snip: </b>{{proyecto.codSnip  }}</p>
+        <p><b>Nombre proyecto: </b> {{proyecto.nombre }}</p>
+        <p><b>Fecha Reg: </b>{{proyecto.fechReg  }}</p>
+        <p><b>Costo pip: </b>{{proyecto.costoPip  }}</p>
+        <p><b>Coto Dir: </b>{{proyecto.costoDir  }}</p>
+        <p><b>Codigo Funcion: </b>{{proyecto.codFuncion  }}</p>
+        <p><b>Codigo Departamento: </b> {{proyecto.codDepartament }} </p>
+        <p><b>Codigo provincia: </b>{{proyecto.codprovincia  }}</p>
+        <p><b>Codigo Distrito: </b>{{proyecto.codDiestrito  }}</p>
+        <p><b>Codigo Cliente: </b> {{proyecto.codCli  }}</p>
+        <p><b>Codigo Esp: </b>{{proyecto.codEsp  }}</p>
+        <p><b>Codigo Resp: </b>{{proyecto.codResp  }}</p>
+        <p><b>Observacion: </b>{{proyecto.observacion }}</p> 
+    </div>
+</body>
+</html>
 
-
-	<h1>Numero proyecto {{ proyecto.id }}</h1>
-	<h2>Nombre <i>{{ proyecto.nombre }}</i></h2>
-	<p>
-    	<a href="{% url "list_p" %}">Regresar</a>
-	</p>
-
-	<p>Codigo Fase {{proyecto.codigoFase}}</p>
-    <p>Codigo Nivel{{proyecto.codigoNivel }}</p> 
-    <p>Codigo Snip{{proyecto.codSnip  }}</p>
-    <p>Nombre proyecto {{proyecto.nombre }}</p>
-    <p>Fecha Reg{{proyecto.fechReg  }}</p>
-    <p>Costo pip{{proyecto.costopip  }}</p>
-    <p>Coto Dir{{proyecto.costoDir  }}</p>
-    <p>Codigo Funcion{{proyecto.codFuncion  }}</p>
-    <p>Codigo Departamento {{proyecto.codDepartament }} </p>
-    <p>Codigo provincia {{proyecto.codprovincia  }}</p>
-    <p>Codigo Distrito{{proyecto.codDiestrito  }}</p>
-    <p>Codigo Cliente {{proyecto.codCli  }}</p>
-    <p>Codigo Esp{{proyecto.codEsp  }}</p>
-    <p>Codigo Resp{{proyecto.codResp  }}</p>
-    <p>Observacion {{proyecto.observacion }}</p> 
-    <p>Vigente {{proyecto.vigente  }}</p>
+	
