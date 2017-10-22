@@ -22,8 +22,24 @@ class Serie(models.Model):
     rating = models.IntegerField(default=0)
     category = models.CharField(max_length=10, choices=CATEGORIES_CHOICES)
 
+class Departamento(models.Model):
+    nombre = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nombre
+
+class Distrito(models.Model):
+    nombre = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nombre
+
+class Provincia(models.Model):
+    nombre = models.CharField(max_length=100)
+    def __str__(self):
+        return self.nombre
+
 class Proyecto(models.Model):
     codigoFase = models.IntegerField()  
+    
     codigoNivel = models.IntegerField()
     codSnip = models.CharField(max_length=10)
     nombre= models.CharField(max_length=100)
@@ -31,9 +47,9 @@ class Proyecto(models.Model):
     costoPip = models.FloatField()  
     costoDir = models.FloatField()
     codFuncion = models.CharField(max_length=100)
-    codDepartament = models.IntegerField()
-    codProvincia = models.IntegerField()
-    codDiestrito  =models.IntegerField()
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+    distrito = models.ForeignKey(Distrito, on_delete=models.CASCADE)
+    provincia = models.ForeignKey(Provincia, on_delete=models.CASCADE)
     codCli = models.IntegerField()
     codEsp = models.IntegerField()
     codResp = models.IntegerField()
