@@ -25,6 +25,7 @@ from django.views.generic.edit import (
     DeleteView
 )
 
+
 from .models import Proyecto
 from .models import ProyectoDocs
 from .models import ProyectoCosto
@@ -46,14 +47,14 @@ def ProyectoListFunc(request):
 class ProyectoCreacion(CreateView):
     model = Proyecto
     success_url = reverse_lazy('list_p')
-    fields = ['codigoFase','codigoNivel','codSnip','nombre','fechReg','costoPip','costoDir','codFuncion','codDepartament','codProvincia','codDiestrito','codCli','codEsp','codResp','observacion']
+    fields = ['codigoFase','codigoNivel','codSnip','nombre','fechReg','costoPip','costoDir','codFuncion','departamento','provincia','distrito','codCli','codEsp','codResp','observacion']
     template_name = 'series/registro_proyecto.html'
 
 
 class ProyectoUpdate(UpdateView):
     model = Proyecto
     success_url = reverse_lazy('list_p')
-    fields = ['codigoFase','codigoNivel','codSnip','nombre','fechReg','costoPip','costoDir','codFuncion','codDepartament','codProvincia','codDiestrito','codCli','codEsp','codResp','observacion']
+    fields = ['codigoFase','codigoNivel','codSnip','nombre','fechReg','costoPip','costoDir','codFuncion','departamento','provincia','distrito','codCli','codEsp','codResp','observacion']
     template_name='series/update_proyecto.html'
 
 
