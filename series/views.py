@@ -30,9 +30,6 @@ from .models import ProyectoDocs
 from .models import ProyectoCosto
 
 
-
-
-
 def index(request):
     return render(request, 'series/index.html')
 
