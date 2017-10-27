@@ -25,10 +25,10 @@ from django.views.generic.edit import (
     DeleteView
 )
 
-
 from .models import Proyecto
 from .models import ProyectoDocs
 from .models import ProyectoCosto
+from .models import Cliente
 
 
 def index(request):

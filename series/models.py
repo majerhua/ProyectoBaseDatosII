@@ -27,19 +27,30 @@ class Departamento(models.Model):
     def __str__(self):
         return self.nombre
 
-class Distrito(models.Model):
+
+class Provincia(models.Model):
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
     def __str__(self):
         return self.nombre
 
-class Provincia(models.Model):
+class Distrito(models.Model):
+    provincia = models.ForeignKey(Provincia, on_delete=models.CASCADE)
     nombre = models.CharField(max_length=100)
     def __str__(self):
         return self.nombre
+
+
+class Cliente(models.Model):
+    departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
+    provincia = models.ForeignKey(Provincia, on_delete=models.CASCADE)
+    distrito = models.ForeignKey(Distrito, on_delete=models.CASCADE)
+    numero_Ruc =  models.CharField(max_length=12)
+    def __str__(self):
+        return self.numero_Ruc
 
 class Proyecto(models.Model):
     codigoFase = models.IntegerField()  
-    
     codigoNivel = models.IntegerField()
     codSnip = models.CharField(max_length=10)
     nombre= models.CharField(max_length=100)
@@ -50,7 +61,7 @@ class Proyecto(models.Model):
     departamento = models.ForeignKey(Departamento, on_delete=models.CASCADE)
     distrito = models.ForeignKey(Distrito, on_delete=models.CASCADE)
     provincia = models.ForeignKey(Provincia, on_delete=models.CASCADE)
-    codCli = models.IntegerField()
+    codCli = models.ForeignKey(Cliente, on_delete=models.CASCADE)
     codEsp = models.IntegerField()
     codResp = models.IntegerField()
     observacion = models.TextField(max_length=500)

@@ -12,8 +12,10 @@ from .models import ProyectoDocs
 from .models import Distrito
 from .models import Provincia
 from .models import Departamento
+from .models import Cliente
 
 
+admin.site.register(Cliente)
 admin.site.register(ProyectoDocs)
 admin.site.register(Proyecto)
 admin.site.register(Departamento)
